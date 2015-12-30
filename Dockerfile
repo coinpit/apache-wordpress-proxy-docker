@@ -1,0 +1,12 @@
+FROM ubuntu:trusty
+
+RUN apt-get update && \
+    apt-get install -y ca-certificates apache2
+
+COPY 000-default.conf /etc/apache2/sites-enabled/
+RUN a2enmod proxy ssl proxy_http substitute headers
+
+
+EXPOSE 80 443
+
+CMD service apache start
