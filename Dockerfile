@@ -9,4 +9,4 @@ RUN a2enmod proxy ssl proxy_http substitute headers
 
 EXPOSE 80 443
 
-CMD service apache start; tail -f /var/log/apache2/access.log
+CMD apache2ctl -D FOREGROUND
