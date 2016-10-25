@@ -1,7 +1,8 @@
 FROM ubuntu:trusty
 
 RUN apt-get update && \
-    apt-get install -y ca-certificates apache2
+    apt-get install -y ca-certificates apache2 && \
+    mkdir -p /var/www/html
 
 COPY 000-default.conf /etc/apache2/sites-enabled/
 COPY favicon.ico /var/www/html/
